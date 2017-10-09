@@ -1,0 +1,12 @@
+proxy:
+  image: proxy
+  container_name: proxy
+  restart: always
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - data:/root/.caddy
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  env_file:
+    - docker.env
